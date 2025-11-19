@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mary Jane E. Calvario - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', serif;
+      background: linear-gradient(135deg, #aee2ff, #d8caff);
+      overflow-x: hidden;
+      color: #333;
+      transition: 0.4s;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(135deg, #4a4a70, #6a5fa5);
+      color: #eee;
+    }
+
+    .cloud {
+      position: absolute;
+      width: 150px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      filter: blur(8px);
+      animation: floatCloud 25s linear infinite;
+      z-index: -1;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.7);
+      width: 100px;
+      height: 60px;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .cloud::before { top: -20px; left: 10px; }
+    .cloud::after { top: 10px; left: 50px; }
+
+    .cloud:nth-child(1) { top: 50px; left: -200px; animation-duration: 30s; }
+    .cloud:nth-child(2) { top: 150px; left: -300px; animation-duration: 40s; }
+    .cloud:nth-child(3) { top: 250px; left: -250px; animation-duration: 35s; }
+
+    @keyframes floatCloud {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(120vw); }
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1s ease;
+    }
+
+    body.dark-mode .container {
+      background: rgba(50, 50, 80, 0.85);
+      box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #80c0ff;
+      transition: 0.3s;
+    }
+
+    img:hover { 
+      transform: scale(1.05) rotate(2deg); 
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #5d4ed1;
+      font-size: 32px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    body.dark-mode h1 { color: #c0b8ff; }
+
+    h2 {
+      margin-top: 30px;
+      color: #5d4ed1;
+      font-size: 22px;
+      border-left: 5px solid #5d4ed1;
+      padding-left: 10px;
+      transition: 0.3s;
+    }
+
+    body.dark-mode h2 {
+      color: #c0b8ff;
+      border-left-color: #c0b8ff;
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #aee2ff;
+      color: #5d4ed1;
+      padding: 8px 14px;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 14px;
+      box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .skills span:hover { 
+      transform: scale(1.1); 
+      background: #d8caff; 
+    }
+
+    body.dark-mode .skills span { 
+      background: #6a5fa5; 
+      color: #eee; 
+      box-shadow: 0 3px 7px rgba(255,255,255,0.1); 
+    }
+
+    .social-icons a {
+      font-size: 30px;
+      margin: 0 10px;
+      color: #5d4ed1;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover { 
+      transform: translateY(-4px) scale(1.2); 
+      color: #3b2fa0; 
+    }
+
+    body.dark-mode .social-icons a { color: #c0b8ff; }
+
+    .home-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #aee2ff;
+      color: #5d4ed1;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .home-button:hover { 
+      transform: scale(1.07); 
+      background: #d8caff; 
+    }
+
+    body.dark-mode .home-button { 
+      background: #6a5fa5; 
+      color: #eee; 
+    }
+
+    .dark-mode-toggle {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #5d4ed1;
+      transition: 0.3s;
+    }
+
+    body.dark-mode .dark-mode-toggle { 
+      color: #c0b8ff; 
+    }
+
+    p { line-height: 1.6; }
+    body.dark-mode p { color: #e0e0e0; }
+    
+  </style>
+</head>
+<body>
+
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+  <div class="cloud"></div>
+
+  <div class="container">
+    <button class="dark-mode-toggle" id="darkModeToggle"><i class="fas fa-sun"></i></button>
+
+    <img src="jane.jpg" alt="Mary Jane">
+    <h1>Mary Jane E. Calvario</h1>
+    <p><em>Concluder</em></p>
+
+    <h2>About Me</h2>
+    <p>Hi! I’m Mary Jane, and I help our group by wrapping up discussions clearly and making sure everyone understands the topic. I enjoy guiding my team and ensuring our tasks are done smoothly and well-organized.</p>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Problem-solving</span><span>Critical Thinking</span><span>Active Listening</span>
+    </div>
+
+    <h2>Contact Info</h2>
+    <p>Email: janecalvs31@gmail.com</p>
+    <p>Phone: 0954-974-9681</p>
+    <p>Address: Lelemaan, Manaoag, Pangasinan</p>
+
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/169i4neEss/" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <a href="gr4.html" class="home-button"><i class="fa-solid fa-house"></i> Back to Home page</a>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const icon = toggleButton.querySelector('i');
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      icon.className = 'fas fa-moon';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        icon.className = 'fas fa-moon';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        icon.className = 'fas fa-sun';
+      }
+    });
+  </script>
+</body>
+</html>
